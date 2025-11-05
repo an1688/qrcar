@@ -1,0 +1,6 @@
+/*    /index.html   200
+
+# 支持SPA路由重定向
+/call/*  /index.html  200
+/bind/*  /index.html  200
+/admin/*  /index.html  200

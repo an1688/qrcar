@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  body {
+    @apply bg-surface-near-black text-text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+  
+  /* 深色主题优化 */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #282828;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+  }
+}
+
+@layer components {
+  /* 按钮基础样式 */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3 rounded-md font-semibold text-base;
+    @apply transition-all duration-normal ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-400;
+    @apply hover:shadow-button-glow-primary hover:-translate-y-0.5;
+    @apply active:bg-primary-600 active:translate-y-0;
+  }
+  
+  .btn-success {
+    @apply bg-success-500 text-white hover:bg-success-400;
+    @apply hover:shadow-button-glow-success hover:-translate-y-0.5;
+    @apply active:bg-success-600 active:translate-y-0;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-primary-500 border-2 border-primary-500;
+    @apply hover:bg-primary-500 hover:text-white;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-text-secondary hover:bg-surface-light-gray hover:text-text-primary;
+  }
+  
+  /* 卡片样式 */
+  .card {
+    @apply bg-surface-dark-gray rounded-lg p-8 shadow-card;
+    @apply border border-white/10;
+    @apply transition-all duration-normal;
+  }
+  
+  .card-hover {
+    @apply hover:bg-surface-light-gray hover:shadow-card-hover hover:-translate-y-1;
+  }
+  
+  /* 输入框样式 */
+  .input {
+    @apply w-full h-12 px-4 rounded-md bg-surface-dark-gray text-text-primary;
+    @apply border border-white/10 placeholder:text-text-placeholder;
+    @apply focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/40;
+    @apply transition-all duration-normal;
+  }
+  
+  .input-large {
+    @apply h-14 text-lg;
+  }
+  
+  .input-phone {
+    @apply h-16 px-5 text-xl font-mono font-semibold border-2 border-white/15;
+  }
+  
+  /* 数据卡片 */
+  .stat-card {
+    @apply card card-hover;
+  }
+  
+  /* 数字样式 */
+  .stat-number {
+    @apply text-4xl font-bold font-mono text-text-primary;
+  }
+}
+
+/* 动画禁用选项 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
